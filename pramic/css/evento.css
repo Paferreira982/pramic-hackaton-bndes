@@ -1,0 +1,51 @@
+body {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+}
+
+header {
+    position: sticky;
+    height: 9vh;
+    background-color: white;
+    top: 0;
+    z-index: 10;
+}
+
+nav {
+    margin-left: 38.5%;
+    margin-top: -2.5%;
+    height: 35%;
+    width: 40%;
+}
+
+main {
+    height: 53vh;
+}
+
+footer {
+    height: 2.6vh;
+    background-color: crimson;
+}
+
+#logo {
+    width: 10%;
+    margin-top: 1%;   
+    margin-left: 3%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-nav {
+    margin-left: 1%;
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 130%;
+}
+
+.text-nav:hover{
+    color: rgba(0, 0, 0, 0.555);
+    transform: 0.3s;
+}
