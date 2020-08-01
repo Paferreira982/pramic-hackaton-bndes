@@ -20,7 +20,8 @@ nav {
 }
 
 main {
-    height: 53vh;
+    width: 100%;
+    height: auto;
 }
 
 footer {
@@ -55,5 +56,11 @@ a {
     font-size: 40px;
     text-align: center;
     background: LightGray;
-  }
-  
+}
+
+#mural-eventos {
+    margin-left: 25%;
+    width: 50%;
+    background-color: rgb(138, 138, 138);
+    height: auto;
+}
