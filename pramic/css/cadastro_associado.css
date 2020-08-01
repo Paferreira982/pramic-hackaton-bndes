@@ -58,7 +58,7 @@ a {
 }
 
 #formulario-associados {
-    height: 12vh;
+    height: 16vh;
     background-color: rgb(0, 0, 0);
 }
 
@@ -133,4 +133,28 @@ a {
     font-size: 70%;
     margin-left: 2%;
     margin-top: 0.5%;
+}
+
+#botao-cadastrar {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    font-size: 105%;
+    margin-left: 4%;
+    padding-bottom: 27px;
+    cursor: pointer;
+    border: #4bacc6 solid 2px;
+    background-color: #4bacc6;
+    border-radius: 100px;
+    width: 250px;
+    height: 30px;
+    padding-top: 10px;
+    transition-duration: 0.4s;
+    text-align: center;
+    margin-left: 43%;
+    margin-top: 0.8%;
+}
+
+#botao-cadastrar:hover{
+    background: none;
+    color: #4bacc6;
 }
