@@ -38,6 +38,14 @@ a {
     text-decoration: none;
 }
 
+header {
+    position: sticky;
+    height: 9vh;
+    background-color: white;
+    top: 0;
+    z-index: 10;
+}
+
 .text-nav {
     margin-left: 1%;
     color: black;
