@@ -69,7 +69,7 @@ a {
 }
 
 #nome-associado {
-    margin-left: 15%;
+    margin-left: 20%;
     margin-top: 1.5%;
     width: 15%;
 }
@@ -83,7 +83,7 @@ a {
     color: white;
     font-weight: bold;
     font-size: 70%;
-    margin-left: 25%;
+    margin-left: 20%;
     margin-top: 0.5%;
 }
 
@@ -120,4 +120,17 @@ a {
 
 #telefone2 {
     margin-left: 2%;
+}
+
+#email1 {
+    margin-left: 2%;
+}
+
+#label-email1 {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 70%;
+    margin-left: 2%;
+    margin-top: 0.5%;
 }
