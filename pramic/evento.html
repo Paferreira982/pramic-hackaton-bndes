@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/evento.css" type="text/css">
+    <script src="javascript/tratamento-input.js"></script>
 </head>
 
 <body>
     <header>
         <img src="imagens/pramic-logo.png" alt="logo" id="logo" />
         <nav>
-            <a href="home.html" class="text-nav" >PÁGINA INICIAL &nbsp;&nbsp;|</a>
+            <a href="home.html" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
             <a href="mural_eventos.html" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
             <a href="cadastro_associacao.html" class="text-nav">SEJA UM ASSOCIADO</a>
         </nav>
@@ -30,14 +31,14 @@
         </section>
 
         <section class="container-data-local">
-            <span class="data-local-evento">Data: 01/01/2021</span> 
+            <span class="data-local-evento">Data: 01/01/2021</span>
             <span class="data-local-evento">Local: Rocinha</span>
         </section>
 
         <section class="container-formulario">
             <input type="text" id="nome-vexterno" class="input-evento">
             <input type="date" name="nasc-data" id="nasc-data" class="input-evento">
-            <input type="number" name="idade" id="">
+            <input type="tel" name="idade" id="idade" class="input-evento" onblur="tratarTelefone('idade')" maxlength="11">
         </section>
     </main>
 
