@@ -59,8 +59,16 @@ a {
 }
 
 #mural-eventos {
+    padding: 15px;
     margin-left: 25%;
     width: 50%;
     background-color: rgb(138, 138, 138);
     height: auto;
+}
+
+#evento0 {
+    border: 1px solid black;
+    width: 80%;
+    margin-left: 10%;
+    height: 150px;
 }
