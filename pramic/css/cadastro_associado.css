@@ -55,5 +55,21 @@ a {
     font-size: 40px;
     text-align: center;
     background: LightGray;
-  }
-  
+}
+
+#formulario-associados {
+    height: 12vh;
+    background-color: rgb(0, 0, 0);
+}
+
+.text-cadastro {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 100%;
+}
+
+#nome-associado {
+    margin-left: 25%;
+    margin-top: 1%;
+    width: 15%;
+}
