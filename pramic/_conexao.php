@@ -10,7 +10,7 @@ if (!$conexao) {
     echo 'Sucesso na conexão.';
 }
 
-$query = "SELECT nome FROM associacoes";
+/* $query = "SELECT nome FROM associacoes";
 $resultado = mysqli_query($conexao, $query);
 
 if (mysqli_num_rows($resultado) > 0) {
@@ -19,6 +19,6 @@ if (mysqli_num_rows($resultado) > 0) {
     }
 } else {
     echo "0 results";
-}
+} */
 
-mysqli_close($conexao);
+/* mysqli_close($conexao); */
