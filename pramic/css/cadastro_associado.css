@@ -86,3 +86,12 @@ a {
     margin-left: 25%;
     margin-top: 0.5%;
 }
+
+#label-comunidade {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 70%;
+    margin-left: 2%;
+    margin-top: 0.5%;
+}
