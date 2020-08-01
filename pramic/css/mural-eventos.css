@@ -73,6 +73,7 @@ a {
     margin-top: 15px;
     margin-left: 10%;
     height: 150px;
+    display: block;
 }
 
 .imagem-evento{
