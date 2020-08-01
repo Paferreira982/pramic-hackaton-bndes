@@ -20,7 +20,7 @@ nav {
 }
 
 main {
-    height: 53vh;
+    height: 88.4vh;
 }
 
 footer {
@@ -38,12 +38,11 @@ a {
     text-decoration: none;
 }
 
-header {
-    position: sticky;
-    height: 9vh;
-    background-color: white;
-    top: 0;
-    z-index: 10;
+.header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: LightGray;
 }
 
 .text-nav {
@@ -56,4 +55,30 @@ header {
 .text-nav:hover{
     color: rgba(0, 0, 0, 0.555);
     transform: 0.3s;
+}
+
+.imagem-evento {
+    border: 2px solid black;
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 1%;
+    width: 350px;
+    height: 250px;
+}
+
+.container-descricao {
+    margin-top: 1%;
+    margin-left: 28.35%;
+    border: 2px solid black;
+    width: 50%;
+    height: 250px;
+    background-color: LightGray;;
+}
+
+.descricao-evento2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 110%;
+    padding: 15px;
+    padding-top: 5px;
+    font-weight: 600;
 }
