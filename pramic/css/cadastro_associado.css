@@ -70,6 +70,19 @@ a {
 
 #nome-associado {
     margin-left: 25%;
-    margin-top: 1%;
+    margin-top: 1.5%;
     width: 15%;
+}
+
+#select-comunidade {
+    margin-left: 2%;
+}
+
+#label-nome {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 70%;
+    margin-left: 25%;
+    margin-top: 0.5%;
 }
