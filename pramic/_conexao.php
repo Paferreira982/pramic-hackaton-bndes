@@ -6,8 +6,6 @@ if (!$conexao) {
     //echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
     //echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
     exit;
-} else {
-    echo 'Sucesso na conexão.';
 }
 
 /* $query = "SELECT nome FROM associacoes";
@@ -20,5 +18,3 @@ if (mysqli_num_rows($resultado) > 0) {
 } else {
     echo "0 results";
 } */
-
-/* mysqli_close($conexao); */

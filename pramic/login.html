@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    <form method="post" enctype="multipart/form-data" autocomplete="off">
+    <form id="f-login" method="post" action="login.php" enctype="multipart/form-data" autocomplete="off">
         <label for="email">Email</label>
         <input type="text" id="email" name="email" maxlength="40" size="50" />
 
         <label for="senha">Senha</label>
         <input type="password" id="senha" name="senha" maxlength="40" size="50" />
     </form>
+    <button type="submit" form="f-login">Entrar</button>
 </body>
 
 </html>
