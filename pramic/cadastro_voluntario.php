@@ -1,5 +1,5 @@
 <fieldset>
-    <legend>Seja um voluntário</legend>
+    <legend>Cadastro de voluntário</legend>
     <form action = "">
         <label>
             <span>Nome:<br></span>
@@ -61,4 +61,32 @@
         </label>
         <input type = "submit" value = "Enviar">
     </form>
+</fieldset>
+
+<fieldset>
+    <legend>Cadastrar novo evento</legend>
+    <form action = "">
+        <label>
+            <span>Nome do evento:<br></span>
+            <input type = "text" name = "nome-evento" placeholder = "Insira o nome do evento"><br>
+        </label>
+        <label>
+            <span>Descrição das atividades<br></span>
+            <textarea></textarea><br> <!--Editar-->
+        </label>
+        <label>
+            <span>Local de encontro<br></span>
+            <textarea></textarea><br> <!--Editar-->
+        </label>
+        <label>
+            <span>Data e hora<br></span>
+            <input type = "date" name = "data"> &nbsp;
+            <input type = "time" name = "hora"><br>
+        </label>
+        <label>
+            <span>Imagem (Opcional):<br></span>
+            <input type = "file" name = "imagem-evento"><br>
+        </label>
+    </form>
+    <input type = "submit" value = "Enviar">
 </fieldset>
