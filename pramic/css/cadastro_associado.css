@@ -95,3 +95,29 @@ a {
     margin-left: 2%;
     margin-top: 0.5%;
 }
+
+#label-telefone1 {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 70%;
+    margin-left: 2%;
+    margin-top: 0.5%;
+}
+
+#telefone1 {
+    margin-left: 2%;
+}
+
+#label-telefone2 {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 70%;
+    margin-left: 2%;
+    margin-top: 0.5%;
+}
+
+#telefone2 {
+    margin-left: 2%;
+}
