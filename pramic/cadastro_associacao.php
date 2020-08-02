@@ -26,7 +26,7 @@
         </div>
         <form id="f-cadastro" method="post" action="_insert_assoc.php" enctype="multipart/form-data" autocomplete="off">
             <div id="formulario-associados">
-                <input type="hidden" name="status" />
+
                 <label for="nome-associado" class="text-cadastro" id="label-nome">Nome da Associação:</label>
                 <input type="text" name="nome" id="nome-associado" placeholder="Nome da Associação" class="text-cadastro" onblur="tratarNome('nome-associado')" maxlength="100" size="50">
 
@@ -54,7 +54,7 @@
                 <label for="email1" id="label-email1" class="text-cadastro">Email:</label>
                 <input type="email" name="email" id="email1" class="text-cadastro" onblur="verificarEmail('email1')"> <br>
 
-                <label for="senha" class="text-cadastro">Senha:</label>
+                <label for="senha" id="label-senha" class="text-cadastro">Senha:</label>
                 <input type="password" id="senha" class="text-cadastro" name="senha" maxlength="64" />
                 <br>
                 <button type="submit" form="f-cadastro" id="botao-cadastrar">Cadastrar</button>
@@ -62,69 +62,23 @@
         </form>
     </main>
 
-    <footer></footer>
+    <footer>
+        <div id="rodape">
+            <div class="social">
+                <img src="imagens/facebook-black-icon.png"><br>
+                <span>/PramicRJ</span>
+            </div>
+            <div class="social">
+                <img src="imagens/twitter-black-icon.png"><br>
+                <span>@Pramic</span>
+            </div>
+            <div class="social">
+                <img src="imagens/whatsapp-black-icon.png"><br>
+                <span>xxxxx-xxxx</span>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
 </html>
-<?php
-require_once "_conexao.php";
-//require_once "_funcoes.php";
-
-if (
-    !empty($_POST['nome'])
-    && !empty($_POST['id-comunidade'])
-    && !empty($_POST['telefone1'])
-    && !empty($_POST['email'])
-    && !empty($_POST['senha'])
-) {
-    $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
-    $id_comunidade = (int) $_POST['id-comunidade'];
-    $telefone1 = mysqli_real_escape_string($conexao, $_POST['telefone1']);
-    $telefone2 = empty($_POST['telefone2']) ? NULL : mysqli_real_escape_string($conexao, $_POST['telefone2']);
-    $email = mysqli_real_escape_string($conexao, $_POST['email']);
-    $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
-
-    $query_comunidade = "SELECT nome FROM comunidades WHERE id = $id_comunidade";
-    $result = mysqli_query($conexao, $query_comunidade);
-
-    if (mysqli_num_rows($result) == 1) {
-        $linha = mysqli_fetch_assoc($result);
-        $comunidade = $linha['nome'];
-    }
-
-    if ($comunidade) {
-        $query = "INSERT INTO associacoes VALUES (NULL, ?, ?, ?, ?, ?, MD5(?) )";
-        if ($stmt = $conexao->prepare($query)) {
-            $stmt->bind_param(
-                'ssssss',
-                $nome,
-                $comunidade,
-                $telefone1,
-                $telefone2,
-                $email,
-                $senha
-            );
-            $stmt->execute();
-            $linhas = $stmt->affected_rows;
-            $stmt->close();
-        } else {
-            $error = $conexao->errno . ' ' . $conexao->error;
-            echo $error;
-        }
-    }
-
-    if ($linhas == 1) {
-        print_js("
-        alert('sucesso');
-        location.href = 'associacao/login.php';
-        ");
-    } else {
-        print_js("
-        alert('falhou');
-        location.href = 'cadastro_associacao.php';
-        ");
-    }
-    @mysqli_close($conexao);
-}
-?>

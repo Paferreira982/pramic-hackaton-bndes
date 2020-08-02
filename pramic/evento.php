@@ -3,13 +3,13 @@ include "_conexao.php";
 
 @$token = $_GET['k'];
 if ($token) {
-    $query = "SELECT titulo, descricao, atividade, imagem, comunidade, `local`, `data`, hora
+    $query = "SELECT id, titulo, descricao, atividade, imagem, comunidade, `local`, `data`, hora
             FROM eventos WHERE token = '$token'";
     $result = mysqli_query($conexao, $query);
 
     if (mysqli_num_rows($result) == 1) {
         $linha = mysqli_fetch_assoc($result);
-
+        $id = $linha['id'];
         $titulo = $linha['titulo'];
         $descricao = $linha['descricao'];
         $atividade = $linha['atividade'];
@@ -70,6 +70,8 @@ if ($token) {
 
         <section class="container-formulario">
             <form method="post" action="evento.php" enctype="multipart/form-data" autocomplete="off">
+                <input type="hidden" name="id_evento" value="<?php echo $id; ?>" />
+
                 <label for="nome-vexterno" class="text-label" id="label-nome">Nome Completo:</label>
                 <input type="text" id="nome-vexterno" class="input-evento">
 
