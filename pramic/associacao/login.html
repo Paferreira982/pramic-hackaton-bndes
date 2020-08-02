@@ -15,8 +15,7 @@
         <nav>
             <a href="../home.html" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
             <a href="../mural_eventos.html" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
-            <a href="../cadastro_associacao.html" class="text-nav">SEJA UM ASSOCIADO</a> &nbsp;&nbsp;|</a>
-            <a href="login.html" class="text-nav">FAÇA LOGIN</a>
+            <a href="../cadastro_associacao.html" class="text-nav">SEJA UM ASSOCIADO</a> 
         </nav>
     </header>
 
@@ -24,15 +23,16 @@
         <div class="header">
             <h2>Painel de Login</h2>
         </div>
-        <div id="formulario-associados">
+
+        <div id="formulario-login">
                 <form id="f-login" method="post" action="login.php" enctype="multipart/form-data" autocomplete="off">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" maxlength="40" size="50" />
+                    <label for="email" id="label-email" class="text-cadastro">Email</label>
+                    <input type="text" id="email" name="email" class="text-cadastro" maxlength="40" size="50" />
             
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" maxlength="40" size="50" />
+                    <label for="senha" id="label-senha" class="text-cadastro">Senha</label>
+                    <input type="password" id="senha" name="senha" class="text-cadastro" maxlength="40" size="50" />
                 </form>
-                <button type="submit" form="f-login">Entrar</button>
+                <button type="submit" form="f-login" id="botao-login">Entrar</button>
         </div>
     </main>
 
