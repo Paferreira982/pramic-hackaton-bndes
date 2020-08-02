@@ -1,7 +1,36 @@
 <?php
 include "_conexao.php";
-$token = $_GET['k'];
+@$token = $_GET['k'];
 
+if ($token) {
+    $query = "SELECT titulo, descricao, atividade, imagem, comunidade, `local`, `data`, hora
+            FROM eventos WHERE token = '$token'";
+    $result = mysqli_query($conexao, $query);
+
+    if (mysqli_num_rows($result) == 1) {
+        $linha = mysqli_fetch_assoc($result);
+
+        $titulo = $linha['titulo'];
+        $descricao = $linha['descricao'];
+        $atividade = $linha['atividade'];
+        $imagem = $linha['imagem'];
+        $comunidade = $linha['comunidade'];
+        $local = $linha['local'];
+        $data = $linha['data'];
+        $hora = $linha['hora'];
+    } else {
+        echo 'nenhum registro';
+    }
+} else {
+    $titulo = "";
+    $descricao = "";
+    $atividade = "";
+    $imagem = "";
+    $comunidade = "";
+    $local = "";
+    $data = "";
+    $hora = "";
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,20 +56,21 @@ $token = $_GET['k'];
 
     <main>
         <section class="header">
-            <h3>Título do Evento</h3>
+            <h3><?php echo $titulo; ?></h3>
         </section>
 
-        <img src="imagens_eventos/foto-evento.jpg" alt="foto-valao" class="imagem-evento">
+        <img src="imagens_eventos/<?php echo $imagem; ?>" alt="foto-evento" class="imagem-evento">
 
         <section class="container-descricao">
-            <p class="descricao-evento2">Descrição do Evento mais aprofundada! + Atividades!</p>
+            <p class="descricao-evento2">Atividade:<br><?php echo $atividade; ?></p>
+            <p class="descricao-evento2">Descrição:<br><?php echo $descricao; ?></p>
         </section>
 
         <section class="container-data-local">
-            <span class="data-local-evento">Comunidade: Rocinha</span>
-            <span class="data-local-evento">Endereço: Rua da mamãe, número 50</span>
-            <span class="data-local-evento">Data: 01/01/2021</span>
-            <span class="data-local-evento">Hora: 12:30</span>
+            <span class="data-local-evento">Comunidade: <?php echo $comunidade; ?></span>
+            <span class="data-local-evento">Endereço: <?php echo $local; ?></span>
+            <span class="data-local-evento">Data: <?php echo $data; ?></span>
+            <span class="data-local-evento">Hora: <?php echo $hora; ?></span>
         </section>
 
         <section class="container-formulario">
