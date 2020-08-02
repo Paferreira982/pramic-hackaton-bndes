@@ -62,6 +62,7 @@ a {
     margin-left: 25%;
     width: 50%;
     min-width: 630px;
+    max-width: 650px;
     background-color: rgb(138, 138, 138);
     height: auto;
 }
