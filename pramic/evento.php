@@ -1,7 +1,7 @@
 <?php
 include "_conexao.php";
-@$token = $_GET['k'];
 
+@$token = $_GET['k'];
 if ($token) {
     $query = "SELECT titulo, descricao, atividade, imagem, comunidade, `local`, `data`, hora
             FROM eventos WHERE token = '$token'";
@@ -69,17 +69,24 @@ if ($token) {
         </section>
 
         <section class="container-formulario">
-            <label for="nome-vexterno" class="text-label" id="label-nome">Nome Completo:</label>
-            <input type="text" id="nome-vexterno" class="input-evento">
-            <label for="idade" class="text-label">Idade:</label>
-            <input type="text" name="idade" id="idade" class="input-evento" maxlength="2" onblur="tratarIdade('idade')">
-            <label for="tel1" class="text-label">Telefone (Opcional):</label>
-            <input type="tel" name="tel1" id="tel1" class="input-evento" onblur="tratarTelefone('tel1')" maxlength="11">
-            <label for="email2" class="text-label">Email:</label>
-            <input type="email" name="email2" id="email2" class="input-evento" onblur="verificarEmail('email2')">
-            <label for="cpf1" class="text-label">CPF:</label>
-            <input type="text" name="cpf1" id="cpf1" class="input-evento" onblur="inputCPF('cpf1')">
-            <button id="botao-cadastro">Voluntariar-se</button>
+            <form method="post" action="evento.php" enctype="multipart/form-data" autocomplete="off">
+                <label for="nome-vexterno" class="text-label" id="label-nome">Nome Completo:</label>
+                <input type="text" id="nome-vexterno" class="input-evento">
+
+                <label for="idade" class="text-label">Idade:</label>
+                <input type="text" name="idade" id="idade" class="input-evento" maxlength="2" onblur="tratarIdade('idade')">
+
+                <label for="tel1" class="text-label">Telefone (Opcional):</label>
+                <input type="tel" name="tel1" id="tel1" class="input-evento" onblur="tratarTelefone('tel1')" maxlength="11">
+
+                <label for="email2" class="text-label">Email:</label>
+                <input type="email" name="email2" id="email2" class="input-evento" onblur="verificarEmail('email2')">
+
+                <label for="cpf1" class="text-label">CPF:</label>
+                <input type="text" name="cpf1" id="cpf1" class="input-evento" onblur="inputCPF('cpf1')">
+
+                <button type="submit" id="botao-cadastro">Voluntariar-se</button>
+            </form>
         </section>
     </main>
 
