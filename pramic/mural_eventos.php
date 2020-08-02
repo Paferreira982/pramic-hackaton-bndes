@@ -30,9 +30,9 @@ if (!$result) {
     <header>
         <img src="imagens/pramic-logo.png" alt="logo" id="logo">
         <nav>
-            <a href="home.html" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
-            <a href="mural_eventos.html" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
-            <a href="cadastro_associacao.html" class="text-nav">SEJA UM ASSOCIADO</a>
+            <a href="home.php" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
+            <a href="mural_eventos.php" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
+            <a href="cadastro_associacao.php" class="text-nav">SEJA UM ASSOCIADO</a>
 
         </nav>
     </header>

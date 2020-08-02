@@ -1,3 +1,8 @@
+<?php
+include "../_verif_sessao.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
