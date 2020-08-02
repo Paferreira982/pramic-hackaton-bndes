@@ -5,47 +5,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="" type="text/css" />
+    <link rel="stylesheet" href="../../css/incluir.css" type="text/css" />
 </head>
 
 <body>
-    <form method="post" enctype="multipart/form-data" autocomplete="off" action="_insert_evento.php">
-        <label for="titulo">Título</label>
-        <input type="text" id="titulo" name="titulo" maxlength="100" size="150" /><br>
+    <header>
+        <img src="../../imagens/pramic-logo.png" alt="logo" id="logo">
+        <nav>
+            <a href="../../home.html" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
+            <a href="../../mural_eventos.html" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
+            <a href="mural.html" class="text-nav">PÁGINA DO ASSOCIADO</a>
 
-        <label for="descricao">Descrição</label>
-        <textarea type="text" id="descricao" name="descricao" maxlength="800" rows="18"></textarea><br>
+        </nav>
+    </header>
 
-        <fieldset>
-            <legend>Atividades</legend>
-            <input type="checkbox" id="limpeza" name="limpeza" />
-            <label for="limpeza">Limpeza</label> <br>
+    <main>
+        <div class="header">
+            <h1>Crie um Evento</h1>
+        </div>
+        <form method="post" enctype="multipart/form-data" autocomplete="off" action="_insert_evento.php">
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" maxlength="80" size="82" /><br>
 
-            <input type="checkbox" id="encanamento" name="encanamento" />
-            <label for="encanamento">Reparos de encanamento</label> <br>
+            <label for="descricao">Descrição</label>
+            <textarea type="text" id="descricao" name="descricao" maxlength="370" rows="8" cols="50"></textarea><br>
 
-            <input type="checkbox" id="dengue" name="dengue" />
-            <label for="dengue">Combate a Dengue e Chicungunha</label> <br>
+            <select name="" id="select-atividades">
+                <option value="Selecione">Selecione uma Atividade</option>
+                <option value="limpeza">Limpeza</option>
+                <option value="encanamento">Reparos de encanamento</option>
+                <option value="dengue">Combate a Dengue e Chicungunha</option>
+                <option value="valao">Segurança e sinalização em torno de valões</option>
+            </select> <br>
 
-            <input type="checkbox" id="valao" name="valao" />
-            <label for="valao">Segurança e sinalização em torno de valões</label> <br>
-        </fieldset>
+            <label>Imagem</label>
+            <input type="file" id="imagem" name="imagem" /><br>
 
-        <label>Imagem</label>
-        <input type="file" id="imagem" name="imagem" /><br>
+            <label>Local</label>
+            <input type="text" id="local" name="local" maxlength="150" size="150" /><br>
 
-        <label>Local</label>
-        <input type="text" id="local" name="local" maxlength="150" size="150" /><br>
+            <label>Data</label>
+            <input type="date" id="data" name="data" value="" min="" max="" /><br>
 
-        <label>Data</label>
-        <input type="date" id="data" name="data" value="" min="" max="" /><br>
-
-        <label>Hora</label>
-        <input type="number" id="hora" name="hora" min="00" max="24" /> :
-        <input type="number" id="minutos" name="minutos" min="00" max="60" /><br>
-    </form>
+            <label>Hora</label>
+            <input type="number" id="hora" name="hora" min="00" max="24" /> :
+            <input type="number" id="minutos" name="minutos" min="00" max="60" /><br>
+        </form>
+    </main>
 </body>
-<!-- 
-    input name data - data tual js: value, min, max + 2 anos -->
+<!--input name data - data atual js: value, min, max + 2 anos-->
 
 </html>
