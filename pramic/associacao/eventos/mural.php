@@ -3,9 +3,10 @@
 $comunidade = $_SESSION['comunidade_assoc'];
 
 include "_conexao.php";
-$query = "SELECT e.token, e.titulo, e.descricao, e.id_atividade, e.imagem, e.comunidade, e.local, e.data, e.hora, a.atividade
+$query = "SELECT e.titulo, e.descricao, e.id_atividade, e.imagem, e.comunidade, e.local, e.data, e.hora, a.atividade
         FROM eventos e
         JOIN atividades a ON a.id = e.id_atividade
+        WHERE e.comunidade = $comunidade
         ORDER BY e.data ASC";
 
 $result = mysqli_query($conexao, $query);
@@ -59,7 +60,6 @@ if (!$result) {
                 $data = date_format($data, 'd/m/Y');
                 $hora = date_create($linha['hora']);
                 $hora = date_format($hora, 'H:i');
-                $token = $linha['token'];
 
                 echo "<div id='evento1'>
                             <a href='evento.php?k=$token' class='evento'>
