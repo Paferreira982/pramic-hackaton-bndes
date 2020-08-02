@@ -59,7 +59,7 @@ a {
 
 #mural-eventos {
     padding: 15px;
-    margin: auto;
+    margin: 20px auto;
     width: 50%;
     min-width: 630px;
     max-width: 650px;
@@ -68,6 +68,16 @@ a {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+#mural-eventos a, #mural-eventos a:visited{
+    color: black;
+}
+
+#mural-eventos:hover{
+    background-color: LightGray;
+    transition-property: background-color;
+    transition-duration: 0.2s;
 }
 
 #imagem, #descricao{
