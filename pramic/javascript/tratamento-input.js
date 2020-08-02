@@ -100,6 +100,71 @@ function verificarEmail(id) {
     }
 }
 
-function verificarCPF(id) {
-   
+function verificarCPF(strCPF) {
+    let Soma = 0;
+    let Resto = 0;
+
+    if (strCPF == "00000000000") {
+        return false;
+    }
+
+    for (i = 1; i <= 9; i++) {
+        Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+        Resto = (Soma * 10) % 11;
+    }
+
+    if ((Resto == 10) || (Resto == 11)) {
+        Resto = 0;
+    }
+
+    if (Resto != parseInt(strCPF.substring(9, 10))) {
+        return false;
+    }
+
+    Soma = 0;
+    for (i = 1; i <= 10; i++) {
+        Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+        Resto = (Soma * 10) % 11;
+    }
+
+    if ((Resto == 10) || (Resto == 11)) {
+        Resto = 0;
+    }
+    if (Resto != parseInt(strCPF.substring(10, 11))) {
+        return false;
+    }
+    return true;
+}
+
+function inputCPF(id) {
+    let caracteresAceitos = "0123456789";
+    let auxId = document.getElementById(id).value, aux = "";
+    aux = auxId.length;
+
+    for (let i = 0; i < aux; i++) {
+        if (caracteresAceitos.includes(auxId.charAt(i)) == false) {
+            console.log("Tirou!");
+            auxId = auxId.replace(auxId.charAt(i), "");
+            i--;
+        }
+    }
+
+    if (auxId.length != 11) {
+        document.getElementById(id).style.backgroundColor = "rgba(255, 110, 110, 0.726)";
+        document.getElementById(id).style.border = "red";
+        document.getElementById(id).value = auxId;
+        return false
+    }
+
+    if (verificarCPF(auxId)) {
+        document.getElementById(id).style.backgroundColor = "white";
+        document.getElementById(id).style.border = "black";
+        document.getElementById(id).value = auxId;
+        return true
+    } else {
+        document.getElementById(id).style.backgroundColor = "rgba(255, 110, 110, 0.726)";
+        document.getElementById(id).style.border = "red";
+        document.getElementById(id).value = auxId;
+        return false
+    }
 }
