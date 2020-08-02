@@ -1,7 +1,7 @@
 <?php
 
 include "_conexao.php";
-$query = "SELECT titulo, descricao, atividade, imagem, comunidade, `local`, `data`, hora, token
+$query = "SELECT titulo, descricao, id_atividade, imagem, comunidade, `local`, `data`, hora, token
         FROM eventos ORDER BY `data` ASC";
 $result = mysqli_query($conexao, $query);
 
@@ -43,7 +43,7 @@ if (!$result) {
             while ($linha = mysqli_fetch_assoc($result)) {
                 $titulo = $linha['titulo'];
                 $descricao = $linha['descricao'];
-                $atividade = $linha['atividade'];
+                $atividade = $linha['id_atividade'];
                 $imagem = $linha['imagem'];
                 $comunidade = $linha['comunidade'];
                 $data = date_create($linha['data']);
@@ -52,27 +52,22 @@ if (!$result) {
                 $hora = date_format($hora, 'H:i');
                 $token = $linha['token'];
 
-                echo "<a href='evento.php?k=$token' class='evento'>
-                        <div id = 'imagem'>
-                            <img src = 'imagens_eventos/$imagem'>
-                        </div>
-                        <div id = 'descricao'>
-                            <h3>
-                                Título: $titulo
-                            </h3>
-                            <p>
-                                Atividade: $atividade
-                            </p>
-                            <p>
-                                Descrição: $descricao
-                            </p>
-                        </div>
-                        <div id = dados>
-                            Comunidade: $comunidade&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            Data: $data&nbsp; &nbsp;
-                            Hora: $hora
-                        </div>
-                    </a>";
+                echo "<div id='evento1'>
+                        <a href='evento.php?k=$token' class='evento'>
+                            <div id = 'imagem'>
+                                <img src = 'imagens_eventos/$imagem'>
+                            </div>
+                            <div id = 'descricao'>
+                                <h3>$titulo</h3>
+                                <p>Descrição: $descricao</p>
+                            </div>
+                            <div id = 'dados'>
+                                &nbsp; &nbsp; Comunidade: $comunidade &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                Data: $data&nbsp; &nbsp;
+                                Hora: $hora
+                            </div>
+                        </a>
+                    </div>";
             }
             ?>
 

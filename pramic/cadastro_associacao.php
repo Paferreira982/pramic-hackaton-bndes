@@ -1,5 +1,3 @@
-<?php echo $_POST['status'] ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +24,7 @@
         <div class="header">
             <h2>CADASTRO DA ASSOCIAÇÃO</h2>
         </div>
-        <form id="f-cadastro" method="post" action="cadastro_associacao.php" enctype="multipart/form-data" autocomplete="off">
+        <form id="f-cadastro" method="post" action="_insert_assoc.php" enctype="multipart/form-data" autocomplete="off">
             <div id="formulario-associados">
                 <input type="hidden" name="status" />
                 <label for="nome-associado" class="text-cadastro" id="label-nome">Nome da Associação:</label>
@@ -71,8 +69,8 @@
 </html>
 <?php
 require_once "_conexao.php";
+//require_once "_funcoes.php";
 
-$status = false;
 if (
     !empty($_POST['nome'])
     && !empty($_POST['id-comunidade'])
@@ -117,28 +115,16 @@ if (
     }
 
     if ($linhas == 1) {
-        $status = true;
+        print_js("
+        alert('sucesso');
+        location.href = 'associacao/login.php';
+        ");
+    } else {
+        print_js("
+        alert('falhou');
+        location.href = 'cadastro_associacao.php';
+        ");
     }
     @mysqli_close($conexao);
-    //header("Location: " . $url_atual);
-
-    $url_atual = $_SERVER['PHP_SELF'];
-
-    echo "<script>
-    function postAjax(url, data) {
-        var params = typeof data == 'string' ? data : Object.keys(data).map(
-                function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
-            ).join('&');
-    
-        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        xhr.open('POST', url);
-        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send(params);
-        return xhr;
-    }
-    postAjax('" . $url_atual . "', 'status=true');
-    </script>";
 }
-
 ?>
