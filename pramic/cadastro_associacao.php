@@ -120,8 +120,9 @@ if (
         $status = true;
     }
     @mysqli_close($conexao);
-    $url_atual = $_SERVER['PHP_SELF'];
     //header("Location: " . $url_atual);
+
+    $url_atual = $_SERVER['PHP_SELF'];
 
     echo "<script>
     function postAjax(url, data) {
