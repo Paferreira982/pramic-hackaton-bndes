@@ -46,6 +46,11 @@ function tratarTelefone(id) {
         }
     }
     document.getElementById(id).value = auxId.trim();
+    if (auxId.length == 11) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function verificarEmail(id) {
