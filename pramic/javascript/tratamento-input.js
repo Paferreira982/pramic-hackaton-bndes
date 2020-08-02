@@ -217,7 +217,7 @@ function tratarIdade(id) {
 function tratarData(id) {
     let today = new Date();
     let dd = today.getDate();
-    let mm = today.getMonth() + 1; //January is 0!
+    let mm = today.getMonth() + 1;
     let aaaa = today.getFullYear();
     if (dd < 10) {
         dd = '0' + dd
