@@ -35,10 +35,10 @@
         <div id="formulario-login">
             <form id="f-login" method="post" action="login.php" enctype="multipart/form-data" autocomplete="off">
                 <label for="email" id="label-email" class="text-cadastro">Email</label>
-                <input type="text" id="email" name="email" class="text-cadastro" maxlength="40" size="30" /> <br><br>
+                <input type="text" id="email" name="email" class="text-cadastro" maxlength="40" size="28" /> <br><br>
 
                 <label for="senha" id="label-senha" class="text-cadastro">Senha</label>
-                <input type="password" id="senha" name="senha" class="text-cadastro" maxlength="16" size="20" />
+                <input type="password" id="senha" name="senha" class="text-cadastro" maxlength="50" size="28" />
             </form>
             <button type="submit" form="f-login" id="botao-login">Entrar</button>
         </div>
@@ -95,4 +95,5 @@ if (isset($_POST['email'])) {
         echo ("<script> location.href='eventos/mural.php'; </script>");
     }
 }
+@mysqli_close($conexao);
 ?>
