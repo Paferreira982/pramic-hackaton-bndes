@@ -1,24 +1,16 @@
-body{
-    padding-bottom: 100px;
-}
-
 footer{
     background-color: crimson;
     width: 100%;
-    position: fixed;
     height: 65px;
     bottom: 0;
 }
 
 footer #rodape{
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    margin-left: 25%;
 }
 
 footer #rodape img{
+    margin-top: 10%;
     width: 30px;
     height: 30px;
 }
@@ -31,7 +23,6 @@ footer #rodape .social{
 }
 
 .social span{
-    position: relative;
     right: 12px;
     color: white;
 }
