@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../../css/incluir.css" type="text/css" />
+    <script src="../../javascript/tratamento-input.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,7 @@
                 <input type="text" id="local" name="local" maxlength="100" size="50" class="text-cadastro"/> <br> <br>
 
                 <label for="data" class="text-label">Data:</label>
-                <input type="date" id="data" name="data" value="" min="" max="" /> <br> <br>
+                <input type="date" id="data" name="data" onclick="tratarData('data')"/> <br> <br>
 
                 <label for="hora" class="text-label">Hora:</label>
                 <input type="number" id="hora" name="hora" min="00" max="24" /> :

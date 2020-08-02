@@ -195,3 +195,22 @@ function tratarIdade(id) {
         return true
     }
 }
+
+function tratarData(id) {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    let aaaa = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = aaaa + '-' + mm + '-' + dd;
+    document.getElementById(id).setAttribute("min", today);
+    aaaa += 2;
+    today = aaaa + '-' + mm + '-' + dd;
+    document.getElementById(id).setAttribute("max", today);
+}
