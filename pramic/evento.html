@@ -37,7 +37,7 @@
 
         <section class="container-formulario">
             <label for="nome-vexterno" class="text-label" id="label-nome">Nome Completo:</label>
-            <input type="text" id="nome-vexterno" class="input-evento">
+            <input type="text" id="nome-vexterno" class="input-evento" onblur="tratarNome('nome-vexterno')">
             <label for="idade" class="text-label">Idade:</label>
             <input type="text" name="idade" id="idade" class="input-evento" maxlength="2" onblur="tratarIdade('idade')">
             <label for="tel1" class="text-label">Telefone (Opcional):</label>
