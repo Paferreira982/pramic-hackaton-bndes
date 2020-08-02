@@ -27,11 +27,6 @@ main {
     height: 53vh;
 }
 
-footer {
-    height: 2.6vh;
-    background-color: crimson;
-}
-
 #logo {
     width: 10%;
     margin-top: 1%;   
@@ -105,4 +100,38 @@ a {
     margin-top: 18%;
     padding-top: 25px;
     background-color: rgba(255, 255, 255, 0.849);
+}
+
+footer{
+    background-color: crimson;
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+}
+
+footer #rodape{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+footer #rodape img{
+    width: 30px;
+    height: 30px;
+}
+
+footer #rodape .social{
+    margin: 0px 125px 5px;
+    display: inline-block;
+    box-sizing: content-box;
+    box-sizing: border-box;
+}
+
+.social span{
+    position: relative;
+    right: 12px;
+    color: white;
 }
