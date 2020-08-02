@@ -3,8 +3,10 @@ include "_conexao.php";
 
 @$token = $_GET['k'];
 if ($token) {
-    $query = "SELECT id, titulo, descricao, id_atividade, imagem, comunidade, `local`, `data`, hora
-            FROM eventos WHERE token = '$token'";
+    $query = "SELECT e.id, e.titulo, e.descricao, e.id_atividade, e.imagem, e.comunidade, e.local, e.data, e.hora, a.atividade
+                FROM eventos e
+                JOIN atividades a ON a.id = e.id_atividade
+                WHERE token = '$token'";
     $result = mysqli_query($conexao, $query);
 
     if (mysqli_num_rows($result) == 1) {
@@ -12,7 +14,7 @@ if ($token) {
         $id = $linha['id'];
         $titulo = $linha['titulo'];
         $descricao = $linha['descricao'];
-        $id_atividade = $linha['id_atividade'];
+        $atividade = $linha['atividade'];
         $imagem = $linha['imagem'];
         $comunidade = $linha['comunidade'];
         $local = $linha['local'];
@@ -57,7 +59,7 @@ if ($token) {
         <img src="imagens_eventos/<?php echo $imagem; ?>" alt="foto-evento" class="imagem-evento">
 
         <section class="container-descricao">
-            <p class="descricao-evento2">Atividade:<br><?php echo $id_atividade; ?></p>
+            <p class="descricao-evento2">Atividade:<br><?php echo $atividade; ?></p>
             <p class="descricao-evento2">Descrição:<br><?php echo $descricao; ?></p>
         </section>
 

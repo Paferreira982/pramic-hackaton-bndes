@@ -1,8 +1,11 @@
 <?php
 
 include "_conexao.php";
-$query = "SELECT titulo, descricao, id_atividade, imagem, comunidade, `local`, `data`, hora, token
-        FROM eventos ORDER BY `data` ASC";
+$query = "SELECT e.token, e.titulo, e.descricao, e.id_atividade, e.imagem, e.comunidade, e.local, e.data, e.hora, a.atividade
+        FROM eventos e
+        JOIN atividades a ON a.id = e.id_atividade
+        ORDER BY e.data ASC";
+
 $result = mysqli_query($conexao, $query);
 
 if (!$result) {
@@ -43,7 +46,7 @@ if (!$result) {
             while ($linha = mysqli_fetch_assoc($result)) {
                 $titulo = $linha['titulo'];
                 $descricao = $linha['descricao'];
-                $atividade = $linha['id_atividade'];
+                $atividade = $linha['atividade'];
                 $imagem = $linha['imagem'];
                 $comunidade = $linha['comunidade'];
                 $data = date_create($linha['data']);
@@ -59,7 +62,8 @@ if (!$result) {
                             </div>
                             <div id = 'descricao'>
                                 <h3>$titulo</h3>
-                                <p>Descrição:<br>$descricao</p>
+                                <p>Descrição:<br>$descricao
+                                <br><br>Atividade:<br>$atividade</p>
                             </div>
                             <div id='dados'>
                                 &nbsp; &nbsp; Comunidade: $comunidade &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
