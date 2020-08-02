@@ -75,14 +75,15 @@ a {
 
 #imagem{
     display: inline-block;
-    border: 1px solid orange;
+    border: 1px solid black;
     border-left: none;
     border-top: none;
 }
 
 #descricao {
+    white-space: wrap;
     display: inline-block;
-    border: 1px solid orange;
+    border: 1px solid black;
     border-top: none;
     border-right: none;
 }
