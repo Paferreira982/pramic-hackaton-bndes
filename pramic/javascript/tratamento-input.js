@@ -143,7 +143,6 @@ function inputCPF(id) {
 
     for (let i = 0; i < aux; i++) {
         if (caracteresAceitos.includes(auxId.charAt(i)) == false) {
-            console.log("Tirou!");
             auxId = auxId.replace(auxId.charAt(i), "");
             i--;
         }
@@ -159,11 +158,13 @@ function inputCPF(id) {
     if (verificarCPF(auxId)) {
         document.getElementById(id).style.backgroundColor = "white";
         document.getElementById(id).style.border = "black";
+        auxId = auxId.substr(0, 3) + "." + auxId.substr(3, 3) + "." + auxId.substr(6, 3) + "-" + auxId.substr(9, 2);
         document.getElementById(id).value = auxId;
         return true
     } else {
         document.getElementById(id).style.backgroundColor = "rgba(255, 110, 110, 0.726)";
         document.getElementById(id).style.border = "red";
+        auxId = auxId.substr(0, 3) + "." + auxId.substr(3, 3) + "." + auxId.substr(6, 3) + "-" + auxId.substr(9, 2);
         document.getElementById(id).value = auxId;
         return false
     }
