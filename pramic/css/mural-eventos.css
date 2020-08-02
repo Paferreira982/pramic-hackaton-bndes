@@ -58,8 +58,8 @@ a {
     margin: 20px auto;
     margin-top: 0px;
     width: 50%;
-    min-width: 630px;
-    max-width: 650px;
+    min-width: 652px;
+    max-width: 660px;
     background-color: rgb(154 154 154);
     height: auto;
     white-space: nowrap;
@@ -95,7 +95,7 @@ a {
 #descricao{
     float: right;
     width: 370px;
-    height: 153px;
+    height: 200px;
 }
 
 #dados{
@@ -103,8 +103,8 @@ a {
     padding: 10px 0;
 }
 .evento #imagem img{
-    width: 250px;
-    height: 150px;
+    width: 274px;
+    height: 196px;
 }
 
 #evento1 {
