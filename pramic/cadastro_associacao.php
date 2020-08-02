@@ -53,8 +53,8 @@
                 <label for="email1" id="label-email1" class="text-cadastro">Email:</label>
                 <input type="email" name="email" id="email1" class="text-cadastro" onblur="verificarEmail('email1')"> <br>
 
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" maxlength="64" />
+                <label for="senha" class="text-cadastro">Senha:</label>
+                <input type="password" id="senha" class="text-cadastro" name="senha" maxlength="64" />
                 <br>
 
                 <button type="submit" form="f-cadastro" id="botao-cadastrar">Cadastrar</button>
