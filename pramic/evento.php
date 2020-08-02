@@ -16,8 +16,10 @@ if ($token) {
         $imagem = $linha['imagem'];
         $comunidade = $linha['comunidade'];
         $local = $linha['local'];
-        $data = $linha['data'];
-        $hora = $linha['hora'];
+        $data = date_create($linha['data']);
+        $data = date_format($data, 'd/m/Y');
+        $hora = date_create($linha['hora']);
+        $hora = date_format($hora, 'H:i');
     } else {
         echo 'nenhum registro';
     }
