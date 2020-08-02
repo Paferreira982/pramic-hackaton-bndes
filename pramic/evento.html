@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/evento.css" type="text/css">
+    <link rel="stylesheet" href="css/footer.css" type="text/css">
+
     <script src="javascript/tratamento-input.js"></script>
 </head>
 
@@ -53,13 +55,28 @@
                     required="required">
                 <label for="cpf1" class="text-label">CPF:</label>
                 <input type="text" name="cpf1" id="cpf1" class="input-evento" onblur="inputCPF('cpf1')" required="required">
-                <button type="submit" id="botao-cadastro">Voluntariar-se</button>
+                <button type="submit" id="botao-cadastro" onclick="botaoEnviarVoluntario()">Voluntariar-se</button>
 
             </form>
         </section>
     </main>
 
-    <footer></footer>
+    <footer>
+        <div id="rodape">
+            <div class="social">
+                <img src="imagens/facebook-black-icon.png"><br>
+                <span>/PramicRJ</span>
+            </div>
+            <div class="social">
+                <img src="imagens/twitter-black-icon.png"><br>
+                <span>@Pramic</span>
+            </div>
+            <div class="social">
+                <img src="imagens/whatsapp-black-icon.png"><br>
+                <span>xxxxx-xxxx</span>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
