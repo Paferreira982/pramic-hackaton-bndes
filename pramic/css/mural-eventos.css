@@ -65,6 +65,9 @@ a {
     max-width: 650px;
     background-color: rgb(138, 138, 138);
     height: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 #mural-eventos a, #mural-eventos a:visited{
