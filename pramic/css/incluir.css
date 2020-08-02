@@ -21,7 +21,7 @@ nav {
 
 main {
     width: 100%;
-    height: auto;
+    height: 88.4vh;
 }
 
 footer {
@@ -55,4 +55,49 @@ a {
     padding: 30px;
     text-align: center;
     background: LightGray;
+}
+
+#formulario-corpo {
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    padding: 15px;
+    padding-left: 15%;
+    width: 35%;
+    margin-left: 25%;
+    background-color: rgb(170, 170, 170);
+    height: auto;
+}
+
+#botao-enviar{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 12%;
+    color: white;
+    font-size: 105%;
+    padding-bottom: 27px;
+    cursor: pointer;
+    border: black solid 2px;
+    background-color: black;
+    border-radius: 100px;
+    width: 250px;
+    height: 30px;
+    padding-top: 10px;
+    transition-duration: 0.4s;
+    text-align: center;
+}
+
+#botao-enviar:hover{
+    background: none;
+    color: black;
+}
+
+.text-cadastro {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 100%;
+}
+
+.text-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }

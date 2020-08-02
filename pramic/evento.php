@@ -22,14 +22,7 @@ if ($token) {
         echo 'nenhum registro';
     }
 } else {
-    $titulo = "";
-    $descricao = "";
-    $atividade = "";
-    $imagem = "";
-    $comunidade = "";
-    $local = "";
-    $data = "";
-    $hora = "";
+    header("Location: mural_eventos.php");
 }
 ?>
 
