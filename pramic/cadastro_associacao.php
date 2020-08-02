@@ -1,3 +1,5 @@
+<?php echo $_POST['status'] ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,11 +28,12 @@
         </div>
         <form id="f-cadastro" method="post" action="cadastro_associacao.php" enctype="multipart/form-data" autocomplete="off">
             <div id="formulario-associados">
+                <input type="hidden" name="status" />
                 <label for="nome-associado" class="text-cadastro" id="label-nome">Nome da Associação:</label>
                 <input type="text" name="nome" id="nome-associado" placeholder="Nome da Associação" class="text-cadastro" onblur="tratarNome('nome-associado')" maxlength="100" size="50">
 
                 <label for="select-comunidade" class="text-cadastro" id="label-comunidade">Comunidade:</label>
-                <select name="comunidade" id="select-comunidade" class="text-cadastro">
+                <select name="id-comunidade" id="select-comunidade" class="text-cadastro">
                     <option value="">Selecione</option>
                     <option value="1">Acari</option>
                     <option value="2">Cidade de Deus</option>
@@ -56,7 +59,6 @@
                 <label for="senha" class="text-cadastro">Senha:</label>
                 <input type="password" id="senha" class="text-cadastro" name="senha" maxlength="64" />
                 <br>
-
                 <button type="submit" form="f-cadastro" id="botao-cadastrar">Cadastrar</button>
             </div>
         </form>
@@ -68,26 +70,74 @@
 
 </html>
 <?php
-require_once "../_conexao.php";
+require_once "_conexao.php";
 
-if (isset($_POST['nome']) && isset($_POST['comunidade']) && isset($_POST['telefone']) && isset($_POST['telefone2']) && isset($_POST['email'])) {
+$status = false;
+if (
+    !empty($_POST['nome'])
+    && !empty($_POST['id-comunidade'])
+    && !empty($_POST['telefone1'])
+    && !empty($_POST['email'])
+    && !empty($_POST['senha'])
+) {
     $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
-    $comunidade = (int) $_POST['comunidade'];
+    $id_comunidade = (int) $_POST['id-comunidade'];
     $telefone1 = mysqli_real_escape_string($conexao, $_POST['telefone1']);
-    $telefone2 = mysqli_real_escape_string($conexao, $_POST['telefone2']);
+    $telefone2 = empty($_POST['telefone2']) ? NULL : mysqli_real_escape_string($conexao, $_POST['telefone2']);
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
+    $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
-    $query = "INSERT INTO associacoes VALUES (?, ?, SELECT , ?, ?, ?, ?)";
-    /* $query = "SELECT id, nome, comunidade, email, senha FROM associacoes
-            WHERE email = ? AND senha = MD5(?)";
+    $query_comunidade = "SELECT nome FROM comunidades WHERE id = $id_comunidade";
+    $result = mysqli_query($conexao, $query_comunidade);
 
-    $stmt = $conexao->prepare($query);
-    $stmt->bind_param('ss', $email, $senha);
-    $stmt->execute();
-    $stmt->bind_result($q_id, $q_nome, $q_comunidade, $q_email, $q_senha);
-    $stmt->store_result();
-    $linhas = $stmt->num_rows;
-    $stmt->fetch(); */
+    if (mysqli_num_rows($result) == 1) {
+        $linha = mysqli_fetch_assoc($result);
+        $comunidade = $linha['nome'];
+    }
+
+    if ($comunidade) {
+        $query = "INSERT INTO associacoes VALUES (NULL, ?, ?, ?, ?, ?, MD5(?) )";
+        if ($stmt = $conexao->prepare($query)) {
+            $stmt->bind_param(
+                'ssssss',
+                $nome,
+                $comunidade,
+                $telefone1,
+                $telefone2,
+                $email,
+                $senha
+            );
+            $stmt->execute();
+            $linhas = $stmt->affected_rows;
+            $stmt->close();
+        } else {
+            $error = $conexao->errno . ' ' . $conexao->error;
+            echo $error;
+        }
+    }
+
+    if ($linhas == 1) {
+        $status = true;
+    }
+    @mysqli_close($conexao);
+    $url_atual = $_SERVER['PHP_SELF'];
+    //header("Location: " . $url_atual);
+
+    echo "<script>
+    function postAjax(url, data) {
+        var params = typeof data == 'string' ? data : Object.keys(data).map(
+                function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
+            ).join('&');
+    
+        var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        xhr.open('POST', url);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(params);
+        return xhr;
+    }
+    postAjax('" . $url_atual . "', 'status=true');
+    </script>";
 }
 
 ?>
