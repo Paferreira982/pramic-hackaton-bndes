@@ -1,3 +1,9 @@
+<?php
+@session_start();
+@session_unset();
+@session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,11 +58,11 @@
                 <input type="tel" name="telefone2" id="telefone2" class="text-cadastro" onblur="tratarTelefone('telefone2')" maxlength="11">
 
                 <label for="email1" id="label-email1" class="text-cadastro">Email:</label>
-                <input type="email" name="email" id="email1" class="text-cadastro" onblur="verificarEmail('email1')"> <br>
+                <input type="email" name="email" id="email1" class="text-cadastro" onblur="verificarEmail('email1')">
 
                 <label for="senha" id="label-senha" class="text-cadastro">Senha:</label>
                 <input type="password" id="senha" class="text-cadastro" name="senha" maxlength="64" />
-                <br>
+                <br><br>
                 <button type="submit" form="f-cadastro" id="botao-cadastrar">Cadastrar</button>
             </div>
         </form>
