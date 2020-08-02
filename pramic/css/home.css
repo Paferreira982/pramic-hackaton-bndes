@@ -26,6 +26,7 @@ nav {
 main {
     margin-top: -70px;
     box-sizing: content-box;
+    height: 64vh;
 }
 
 #logo {
@@ -97,7 +98,7 @@ a {
 
 #botoes-div {
     width: 100%;
-    height: 12%;
+    height: 60%;
     margin-top: 14%;
     padding-top: 5px;
     padding-bottom: 30px;
