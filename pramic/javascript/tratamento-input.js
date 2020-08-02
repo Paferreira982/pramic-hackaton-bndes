@@ -237,3 +237,17 @@ function tratarData(id) {
     today = aaaa + '-' + mm + '-' + dd;
     document.getElementById(id).setAttribute("max", today);
 }
+
+function botaoEnviarAssociacao() {
+    if (tratarTelefone('telefone1') == false) {
+        alert("Informe um número de telefone válido (campo telefone1). Lembre-se de colocar o DDD.");
+    }
+
+    if (document.getElementById("telefone2").value != "" && tratarTelefone('telefone2') == false) {
+        alert("Informe um número de telefone válido (campo telefone 2). Lembre-se de colocar o DDD.");
+    }
+
+    if (verificarEmail('email1') == false) {
+        alert("Informe um email válido.");
+    }
+}
