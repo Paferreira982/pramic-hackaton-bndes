@@ -60,7 +60,7 @@ a {
     width: 50%;
     min-width: 630px;
     max-width: 650px;
-    background-color: rgb(251, 106, 106);
+    background-color: rgb(154 154 154);
     height: auto;
     white-space: nowrap;
     text-overflow: ellipsis;
