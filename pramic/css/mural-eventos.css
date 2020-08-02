@@ -81,7 +81,7 @@ a {
 }
 
 #descricao {
-    white-space: wrap;
+    white-space: normal;
     display: inline-block;
     border: 1px solid black;
     border-top: none;
