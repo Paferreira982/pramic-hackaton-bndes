@@ -169,3 +169,29 @@ function inputCPF(id) {
         return false
     }
 }
+
+function tratarIdade(id) {
+    let caracteresAceitos = "0123456789";
+    let auxId = document.getElementById(id).value, aux = "";
+    aux = auxId.length;
+
+    for (let i = 0; i < aux; i++) {
+        if (caracteresAceitos.includes(auxId.charAt(i)) == false) {
+            auxId = auxId.replace(auxId.charAt(i), "");
+            i--;
+        }
+    }
+
+    console.log(auxId);
+    if (parseInt(auxId) < 18 || parseInt(auxId) > 99) {
+        document.getElementById(id).style.backgroundColor = "rgba(255, 110, 110, 0.726)";
+        document.getElementById(id).style.border = "red";
+        document.getElementById(id).value = auxId;
+        return false
+    } else {
+        document.getElementById(id).style.backgroundColor = "white";
+        document.getElementById(id).style.border = "black";
+        document.getElementById(id).value = auxId;
+        return true
+    }
+}

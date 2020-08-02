@@ -38,8 +38,8 @@
 
         <section class="container-formulario">
             <input type="text" id="nome-vexterno" class="input-evento">
-            <input type="date" name="nasc-data" id="nasc-data" class="input-evento">
-            <input type="tel" name="idade" id="idade" class="input-evento" onblur="tratarTelefone('idade')" maxlength="11">
+            <input type="text" name="idade" id="idade" class="input-evento" maxlength="3" onblur="tratarIdade('idade')">
+            <input type="tel" name="tel1" id="tel1" class="input-evento" onblur="tratarTelefone('tel1')" maxlength="11">
             <input type="email" name="email2" id="email2" class="input-evento" onblur="verificarEmail('email2')">
             <input type="text" name="cpf1" id="cpf1" class="input-evento" onblur="inputCPF('cpf1')">
         </section>
