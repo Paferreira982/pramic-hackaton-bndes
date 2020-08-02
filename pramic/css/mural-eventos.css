@@ -81,11 +81,11 @@ a {
 }
 
 #descricao {
-    white-space: normal;
     display: inline-block;
     border: 1px solid black;
     border-top: none;
     border-right: none;
+    white-space: normal;
 }
 
 #imagem{
