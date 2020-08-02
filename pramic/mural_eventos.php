@@ -46,16 +46,32 @@ if (!$result) {
                 $atividade = $linha['atividade'];
                 $imagem = $linha['imagem'];
                 $comunidade = $linha['comunidade'];
-                $data = $linha['data'];
-                $hora = $linha['hora'];
+                $data = date_create($linha['data']);
+                $data = date_format($data, 'd/m/Y');
+                $hora = date_create($linha['hora']);
+                $hora = date_format($hora, 'H:i');
                 $token = $linha['token'];
 
                 echo "<a href='evento.php?k=$token' class='evento'>
-                        <div>
-                            <img src='imagens_eventos/$imagem' alt='foto-evento' class='imagem-evento'>
+                        <div id = 'imagem'>
+                            <img src = 'imagens_eventos/$imagem'>
                         </div>
-                        <h3 class='titulo-evento'>$titulo</h3>
-                        <p class='descricao-evento'>$descricao</p>
+                        <div id = 'descricao'>
+                            <h3>
+                                Título: $titulo
+                            </h3>
+                            <p>
+                                Atividade: $atividade
+                            </p>
+                            <p>
+                                Descrição: $descricao
+                            </p>
+                        </div>
+                        <div id = dados>
+                            Comunidade: $comunidade&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            Data: $data&nbsp; &nbsp;
+                            Hora: $hora
+                        </div>
                     </a>";
             }
             ?>
