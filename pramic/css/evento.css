@@ -57,6 +57,10 @@ a {
     transform: 0.3s;
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+}
+
 .imagem-evento {
     border: 2px solid black;
     position: absolute;

@@ -27,7 +27,6 @@ function tratarTelefone(id) {
             i--;
         }
     }
-
     document.getElementById(id).value = auxId.trim();
 }
 
@@ -60,7 +59,7 @@ function verificarEmail(id) {
     for (let i = 0; i < 10; i++) {
         if (parseInt(email.charAt(0)) == i || email.charAt(0) == ".") {
             document.getElementById(id).style.backgroundColor = "rgba(255, 110, 110, 0.726)";
-        document.getElementById(id).style.border = "red";
+            document.getElementById(id).style.border = "red";
             contadorArroba = 0;
             return false;
         }
@@ -69,7 +68,7 @@ function verificarEmail(id) {
     for (let i = 0; i < caracteresValidos.length; i++) {
         if (caracteresValidos.indexOf(email.charAt(i)) == -1) {
             document.getElementById(id).style.backgroundColor = "rgba(255, 110, 110, 0.726)";
-        document.getElementById(id).style.border = "red";
+            document.getElementById(id).style.border = "red";
             contadorArroba = 0;
             i = 1000;
             return false;
@@ -79,7 +78,7 @@ function verificarEmail(id) {
     for (let i = 0; i < email.length; i++) {
         if (email.charAt(i) == "." && email.charAt(i + 1) == ".") {
             document.getElementById(id).style.backgroundColor = "rgba(255, 110, 110, 0.726)";
-        document.getElementById(id).style.border = "red";
+            document.getElementById(id).style.border = "red";
             contadorArroba = 0;
             return false;
         }
@@ -99,4 +98,8 @@ function verificarEmail(id) {
         contadorArroba = 0;
         return true;
     }
+}
+
+function verificarCPF(id) {
+   
 }
