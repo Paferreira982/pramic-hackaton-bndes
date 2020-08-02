@@ -1,5 +1,5 @@
 <?php
-//include "../_verif_sessao.php";
+include "../_verif_sessao.php";
 $comunidade = $_SESSION['comunidade_assoc'];
 
 include "_conexao.php";
@@ -13,7 +13,7 @@ $result = mysqli_query($conexao, $query);
 if (!$result) {
     echo 'erro';
     die;
-}
+};
 
 
 ?>

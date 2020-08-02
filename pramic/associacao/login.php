@@ -1,8 +1,8 @@
 <?php
-@session_unset();
+/* @session_unset();
 @session_destroy();
 @$_SESSION = [];
-@session_start();
+@session_start(); */
 ?>
 
 <!DOCTYPE html>
