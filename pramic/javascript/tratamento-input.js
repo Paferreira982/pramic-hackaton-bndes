@@ -16,6 +16,24 @@ function tratarNome(id) {
     document.getElementById(id).value = auxId.trim();
 }
 
+function tratarEndereço(id) {
+    let caracteresAceitos = "AaBbÇçCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuWwYyVvXxZzÁáÉéÍíÓóÚúÃãÕõÂâÊêÎîÔôÛûàÀ0123456789 ";
+    let auxId = document.getElementById(id).value, aux = "";
+    aux = auxId.length;
+    for (let i = 0; i < aux; i++) {
+        if (caracteresAceitos.includes(auxId.charAt(i)) == false) {
+            auxId = auxId.replace(auxId.charAt(i), "");
+            i--;
+        }
+    }
+
+    while (auxId.includes("  ")) {
+        auxId = auxId.replace("  ", " ");
+    }
+
+    document.getElementById(id).value = auxId.trim();
+}
+
 function tratarTelefone(id) {
     let caracteresAceitos = "0123456789";
     let auxId = document.getElementById(id).value, aux = "";
@@ -194,4 +212,23 @@ function tratarIdade(id) {
         document.getElementById(id).value = auxId;
         return true
     }
+}
+
+function tratarData(id) {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    let aaaa = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = aaaa + '-' + mm + '-' + dd;
+    document.getElementById(id).setAttribute("min", today);
+    aaaa += 2;
+    today = aaaa + '-' + mm + '-' + dd;
+    document.getElementById(id).setAttribute("max", today);
 }
