@@ -59,9 +59,9 @@ if (!$result) {
                             </div>
                             <div id = 'descricao'>
                                 <h3>$titulo</h3>
-                                <p>Descrição: $descricao</p>
+                                <p>Descrição:<br>$descricao</p>
                             </div>
-                            <div id = 'dados'>
+                            <div id='dados'>
                                 &nbsp; &nbsp; Comunidade: $comunidade &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                                 Data: $data&nbsp; &nbsp;
                                 Hora: $hora
