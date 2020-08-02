@@ -1,6 +1,6 @@
 body {
     padding: 0px;
-    border: 0px;
+    border: 0;
     margin: 0px;
     background-image: url(../imagens/index-fundo.jpg);
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@ nav {
 main {
     margin-top: -70px;
     box-sizing: content-box;
-    height: 64vh;
+    /*height: 64vh;*/
 }
 
 #logo {
@@ -111,4 +111,9 @@ a {
     min-width: 40%;
     max-width: 70%;
     margin: 30px auto;
+}
+
+#home-page footer{
+    position: fixed;
+    bottom: 0;
 }
