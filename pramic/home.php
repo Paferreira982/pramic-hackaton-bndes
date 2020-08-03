@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body id = "home-page">
     <header>
         <img src="imagens/pramic-logo.png" alt="logo" id="logo" />
         <nav>
