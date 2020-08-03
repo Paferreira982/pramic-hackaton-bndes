@@ -1,4 +1,8 @@
 <?php
+if (empty($_POST['id_assoc'])) {
+    header("Location: ../login.php");
+}
+
 require_once "../../_conexao.php";
 require_once "../../_funcoes.php";
 
