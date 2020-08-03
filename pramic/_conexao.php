@@ -1,5 +1,5 @@
 <?php
-$conexao = mysqli_connect("127.0.0.1", "root", "", "pramic");
+$conexao = mysqli_connect("us-cdbr-east-02.cleardb.com", "b7ca04fd7fa49c", "8c96900d", "heroku_873d96e06d89292");
 
 if (!$conexao) {
     echo "Error: Não possível conectar ao banco de dados." . PHP_EOL;
