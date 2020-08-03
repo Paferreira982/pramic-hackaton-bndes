@@ -1,8 +1,3 @@
-<?php
-include "../_verif_sessao.php";
-$comunidade = $_POST['comunidade_assoc'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +14,9 @@ $comunidade = $_POST['comunidade_assoc'];
     <header>
         <img src="../../imagens/pramic-logo.png" alt="logo" id="logo">
         <nav>
-            <a href="../../home.php" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
-            <a href="../../mural_eventos.php" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
-            <a href="mural.php" class="text-nav">PÁGINA DO ASSOCIADO</a>
+            <a href="../../home.html" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
+            <a href="../../mural_eventos.html" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
+            <a href="mural.html" class="text-nav">PÁGINA DO ASSOCIADO</a>
 
         </nav>
     </header>
@@ -32,13 +27,14 @@ $comunidade = $_POST['comunidade_assoc'];
         </div>
 
         <div id="formulario-corpo">
-            <form method="post" enctype="multipart/form-data" autocomplete="off" action="_insert.php">
-                <input type="hidden" name="comunidade_assoc" value="<?= $comunidade ?>" />
+            <form method="post" enctype="multipart/form-data" autocomplete="off" action="_insert_evento.php">
                 <label for="titulo" class="text-label">Título do Evento:</label> <br>
-                <input type="text" id="titulo" name="titulo" maxlength="80" size="50" class="text-cadastro" required="required" /> <br>
+                <input type="text" id="titulo" name="titulo" maxlength="80" size="50" class="text-cadastro"
+                    required="required" /> <br>
 
                 <label for="descricao" class="text-label">Descrição</label> <br>
-                <textarea type="text" id="descricao" name="descricao" maxlength="370" rows="5" cols="52" class="text-cadastro" required="required"></textarea>
+                <textarea type="text" id="descricao" name="descricao" maxlength="370" rows="5" cols="52"
+                    class="text-cadastro" required="required"></textarea>
                 <br>
 
                 <label for="select-atividades" class="text-label">Atividades:</label>
@@ -51,10 +47,13 @@ $comunidade = $_POST['comunidade_assoc'];
                 </select> <br> <br>
 
                 <label for="imagem" class="text-label">Imagem:</label>
-                <input type="file" id="imagem" name="imagem" class="text-cadastro" accept="image/*" required="required" /> <br> <br>
+                <input type="file" id="imagem" name="imagem" class="text-cadastro" accept="image/*"
+                    required="required" />
+                <br> <br>
 
                 <label for="local" class="text-label">Endereço:</label> <br>
-                <input type="text" id="local" name="local" maxlength="100" size="50" class="text-cadastro" onblur="tratarEndereço('local')" required="required" /> <br> <br>
+                <input type="text" id="local" name="local" maxlength="100" size="50" class="text-cadastro"
+                    onblur="tratarEndereço('local')" required="required" /> <br> <br>
 
                 <label for="data" class="text-label">Data:</label>
                 <input type="date" id="data" name="data" onclick="tratarData('data')" required="required" /> <br> <br>

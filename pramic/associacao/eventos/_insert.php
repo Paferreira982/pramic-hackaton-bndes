@@ -3,9 +3,6 @@ require_once "../../_conexao.php";
 require_once "../../_funcoes.php";
 
 $comunidade = $_POST['comunidade_assoc'];
-$id_assoc = $_POST['id_assoc'];
-$nome_assoc = $_POST['nome_assoc'];
-
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
 $id_atividade = (int) $_POST['atividade'];
@@ -56,13 +53,7 @@ if (($ok) && ($fez_download)) {
                                         '$file_name', '$comunidade', '$local', '$data', '$hora', '$token' ) ";
 
     if (mysqli_query($conexao, $query)) {
-        print_js("alert('Evento criado com sucesso.')");
-        echo "<form id='p-form' method='post' action='mural.php'>
-                <input type='hidden' name='id_assoc' value='$id_assoc'>
-                <input type='hidden' name='nome_assoc' value='$nome_assoc'>
-                <input type='hidden' name='comunidade_assoc' value='$comunidade'>
-            </form>";
-        print_js("document.forms.namedItem('p-form').submit()");
+        print_js("alert('Evento criado com sucesso.');");
     } else {
         //echo "Error: " . $query . "<br>" . mysqli_error($conexao);
     }

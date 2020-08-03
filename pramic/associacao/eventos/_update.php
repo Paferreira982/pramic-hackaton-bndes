@@ -42,10 +42,10 @@ if ((!empty($file_tmp_name)) && (is_file($file_tmp_name)) && ($ok)) {
 }
 
 $query = "UPDATE eventos SET titulo = '$titulo', descricao = '$descricao',
-            id_atividade = $id_atividade, `local` = '$local', `data` = '$data', hora = '$hora' ";
+            id_atividade = $id_atividade, `local` = '$local', `data` = '$data', hora = '$hora', ";
 
 if (($ok) && ($fez_download)) {
-    $query .= ", imagem = '$file_name'";
+    $query .= "imagem = '$file_name'";
 }
 $query .= " WHERE id = $id_evento";
 
@@ -60,7 +60,7 @@ if (mysqli_query($conexao, $query)) {
 } else {
     print_js("
         alert('Ocorreu um erro ao efetuar a alteração no banco de dados.');
-        history.go(-1);
+        //history.go(-1);
     ");
     //echo "Error: " . $query . "<br>" . mysqli_error($conexao);
 }
