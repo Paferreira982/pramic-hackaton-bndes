@@ -1,12 +1,15 @@
 <?php
-include "../_verif_sessao.php";
-$comunidade = $_SESSION['comunidade_assoc'];
+require_once "../../_conexao.php";
+require_once "../../_funcoes.php";
 
-include "_conexao.php";
-$query = "SELECT e.titulo, e.descricao, e.id_atividade, e.imagem, e.comunidade, e.local, e.data, e.hora, a.atividade
+$id_assoc = $_POST['id_assoc'];
+$nome_assoc = $_POST['nome_assoc'];
+$comunidade_assoc = $_POST['comunidade_assoc'];
+
+$query = "SELECT e.id, e.token, e.titulo, e.descricao, e.id_atividade, e.imagem, e.comunidade, e.local, e.data, e.hora, a.atividade
         FROM eventos e
         JOIN atividades a ON a.id = e.id_atividade
-        WHERE e.comunidade = $comunidade
+        WHERE e.comunidade = '$comunidade_assoc'
         ORDER BY e.data ASC";
 
 $result = mysqli_query($conexao, $query);
@@ -14,8 +17,7 @@ $result = mysqli_query($conexao, $query);
 if (!$result) {
     echo 'erro';
     die;
-};
-
+}
 
 ?>
 
@@ -28,7 +30,17 @@ if (!$result) {
     <title>Document</title>
     <link rel="stylesheet" href="../../css/mural-eventos.css" type="text/css">
     <link rel="stylesheet" href="../../css/footer.css" type="text/css">
-
+    <script>
+        function acessaEvento(id) {
+            if (id === 'incluir') {
+                document.forms.namedItem('p-form').action = 'incluir_evento.php';
+                document.forms.namedItem('p-form').submit();
+            } else {
+                document.querySelector("#id_evento").value = id;
+                document.forms.namedItem('p-form').submit();
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -46,11 +58,20 @@ if (!$result) {
     <main>
         <div class="header">
             <h1>Eventos da sua Associação</h1>
-            <a href="incluir_evento.php"><button id="botao-incluir">Incluir Evento</button></a>
+            <button type="button" id="botao-incluir" onclick="acessaEvento('incluir');">Incluir Evento</button>
         </div>
+        <form id='p-form' method='post' action='alterar_evento.php'>
+            <input type='hidden' name='id_assoc' value='<?= $id_assoc ?>'>
+            <input type='hidden' name='nome_assoc' value='<?= $nome_assoc ?> '>
+            <input type='hidden' name='comunidade_assoc' value='<?= $comunidade_assoc ?>'>
+            <input type='hidden' name='id_evento' id='id_evento'>
+        </form>
+        </form>
         <section id="mural-eventos">
             <?php
             while ($linha = mysqli_fetch_assoc($result)) {
+                $id = $linha['id'];
+                $token = $linha['token'];
                 $titulo = $linha['titulo'];
                 $descricao = $linha['descricao'];
                 $atividade = $linha['atividade'];
@@ -62,22 +83,22 @@ if (!$result) {
                 $hora = date_format($hora, 'H:i');
 
                 echo "<div id='evento1'>
-                            <a href='evento.php?k=$token' class='evento'>
-                                <div id = 'imagem'>
-                                    <img src = 'imagens_eventos/$imagem'>
-                                </div>
-                                <div id = 'descricao'>
-                                    <h3>$titulo</h3>
-                                    <p>Descrição:<br>$descricao
-                                    <br><br>Atividade:<br>$atividade</p>
-                                </div>
-                                <div id='dados'>
-                                    &nbsp; &nbsp; Comunidade: $comunidade &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                    Data: $data&nbsp; &nbsp;
-                                    Hora: $hora
-                                </div>
-                            </a>
-                        </div>";
+                        <div onclick='acessaEvento($id)' class='evento'>
+                            <div id = 'imagem'>
+                                <img src = '../../imagens_eventos/$imagem'>
+                            </div>
+                            <div id = 'descricao'>
+                                <h3>$titulo</h3>
+                                <p>Descrição:<br>$descricao
+                                <br><br>Atividade:<br>$atividade</p>
+                            </div>
+                            <div id='dados'>
+                            &nbsp;
+                            Data: $data&nbsp; &nbsp;
+                            Hora: $hora
+                            </div>
+                        </div>
+                    </div>";
             }
             ?>
 

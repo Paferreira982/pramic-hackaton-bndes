@@ -1,8 +1,8 @@
 <?php
-/* @session_unset();
+@session_unset();
 @session_destroy();
 @$_SESSION = [];
-@session_start(); */
+@session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +21,9 @@
     <header>
         <img src="../imagens/pramic-logo.png" alt="logo" id="logo">
         <nav>
-            <a href="../home.html" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
-            <a href="../mural_eventos.html" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
-            <a href="../cadastro_associacao.html" class="text-nav">SEJA UM ASSOCIADO</a>
+            <a href="../home.php" class="text-nav">PÁGINA INICIAL &nbsp;&nbsp;|</a>
+            <a href="../mural_eventos.php" class="text-nav">MURAL DE EVENTOS &nbsp;&nbsp;|</a>
+            <a href="../cadastro_associacao.php" class="text-nav">SEJA UM ASSOCIADO</a>
         </nav>
     </header>
 
@@ -66,6 +66,7 @@
 
 <?php
 require_once "../_conexao.php";
+require_once "../_funcoes.php";
 
 if (isset($_POST['email'])) {
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
@@ -84,15 +85,10 @@ if (isset($_POST['email'])) {
 
     if ($linhas == 0) {
         mysqli_close($conexao);
-        echo ("<script> location.href='login_error.html' </script>");
+        echo ("<script> location.href='login_error.php' </script>");
     } else {
-        $_SESSION['id_assoc'] = (int) $q_id;
-        $_SESSION['nome_assoc'] = $q_nome;
-        $_SESSION['comunidade_assoc'] = $q_comunidade;
-        $_SESSION['email_assoc'] = $q_email;
-
         @mysqli_close($conexao);
-        echo ("<script> location.href='eventos/mural.php'; </script>");
+        passa_info3('eventos/mural.php', $q_id, $q_nome, $q_comunidade);
     }
 }
 @mysqli_close($conexao);

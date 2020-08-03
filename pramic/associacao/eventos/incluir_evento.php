@@ -1,6 +1,6 @@
 <?php
 include "../_verif_sessao.php";
-
+$comunidade = $_POST['comunidade_assoc'];
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,8 @@ include "../_verif_sessao.php";
         </div>
 
         <div id="formulario-corpo">
-            <form method="post" enctype="multipart/form-data" autocomplete="off" action="_insert_evento.php">
+            <form method="post" enctype="multipart/form-data" autocomplete="off" action="_insert.php">
+                <input type="hidden" name="comunidade_assoc" value="<?= $comunidade ?>" />
                 <label for="titulo" class="text-label">Título do Evento:</label> <br>
                 <input type="text" id="titulo" name="titulo" maxlength="80" size="50" class="text-cadastro" required="required" /> <br>
 
